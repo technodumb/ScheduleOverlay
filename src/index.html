@@ -2,19 +2,33 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <title>CPU Usage</title>
+    <!-- <title>CPU Usage</title> -->
     <link rel="stylesheet" href="index.css" />
   </head>
   <body>
 
-    <div class="main">
-      <h1 id="schedule">Today's schedule</h1>
-      <div class="right-buttons">
-        <img src="../assets/opacity.svg" id="toggle" class="btn" draggable="false">
-        <div id="minimize" class="btn">&minus;</div>
-        <div id="close" class="btn">X</p>
+    <div id="schedule">
+      <div class="schedule-heading">
+        <h1 id="schedule-title">Today's schedule</h1>
+        <div class="right-buttons">
+          <img src="../assets/add.svg" id="add" class="btn" draggable="false">
+          <img src="../assets/open.svg" id="open" class="btn" draggable="false">
+          <img src="../assets/opacity.svg" id="toggle" class="btn" draggable="false">
+          <div id="minimize" class="btn">&minus;</div>
+          <div id="close" class="btn">X</div>
+        </div>
       </div>
-      <!-- close the app when the close is clicked -->
+
+      <div id="schedule-body">
+      <ul>
+        <li>
+          one
+        </li>
+        <li>
+          liss
+        </li>
+      </ul>
+      </div>
     </div>
       <script src="./js/window.js" defer type="module"></script>
   </body>

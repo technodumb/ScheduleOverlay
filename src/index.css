@@ -12,13 +12,24 @@
 body{
   width: 100vw;
   height: 100vh;
-  -webkit-app-region: no-drag;
-  background-color: transparent;
+  -webkit-app-region: drag;
+  /* background-color: transparent; */
+  /* rounded */
+
 } 
 
-.main {
-  -webkit-app-region: drag;
+#schedule {
+  /* box-sizing: content-box; */
   padding: 10px;
+  border-radius: 20px;
+  background-color: transparent;
+  /* outline: white solid 1px; */
+  border: transparent solid 1px;
+}
+
+.schedule-heading {
+  /* box-sizing: border-box; */
+  /* padding: 10px; */
   display: flex;
   flex-direction: row;
   align-content: left;
@@ -32,7 +43,7 @@ body{
   justify-content: center;
 }
 
-#schedule {
+#schedule-title {
   display: flex;
   /* center vertically */
   align-items: center;
@@ -44,7 +55,7 @@ body{
 .btn{
   -webkit-app-region: no-drag;
   cursor: pointer;
-  color: #ffffff80;
+  /* color: #ffffff80; */
   color:var(--btn-color);
   /* filter: invert(50%); */
   width: 30px;
@@ -60,12 +71,20 @@ body{
   color: yellow;
 }
 
-#toggle {
+#open, #toggle, #add{
   filter: var(--btn-filter);
   height: 20px;
   user-select: none;
 }
 
-#toggle:hover {
+#toggle:hover, #open:hover, #add:hover {
   filter: invert(100%);
+}
+
+
+#schedule-body{
+  padding: 20px;
+  color: white;
+  /* font-size: 1.2em; */
+  word-wrap: break-word;
 }
