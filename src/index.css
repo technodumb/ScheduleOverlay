@@ -30,6 +30,8 @@ body{
 .schedule-heading {
   /* box-sizing: border-box; */
   /* padding: 10px; */
+  -webkit-app-region: no-drag;
+  cursor: pointer;
   display: flex;
   flex-direction: row;
   align-content: left;

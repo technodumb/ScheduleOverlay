@@ -9,7 +9,7 @@ const API = {
         close: () => ipcRenderer.send('app/close'),
         minimize: () => ipcRenderer.send('app/minimize'),
         openFile: () => ipcRenderer.invoke('dialog:openFile'),
-        addFile: () => ipcRenderer.send('vscode:addFile'),
+        addFile: () => ipcRenderer.invoke('vscode:addFile'),
         resizeTo: (width, height) => ipcRenderer.send('window:resizeTo', width, height),
     },
 }

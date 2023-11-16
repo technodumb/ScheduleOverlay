@@ -11,6 +11,7 @@ const BODY = document.getElementsByTagName('body')[0];
 
 const btnClass = document.getElementsByClassName('btn');
 const scheduleTag = document.getElementById('schedule');
+const scheduleTitleTag = document.getElementById('schedule-title');
 
 document.addEventListener('DOMContentLoaded', resizeTo);
 
@@ -20,6 +21,7 @@ OPEN.addEventListener('click', openFile);
 TOGGLE.addEventListener('click', toggle);
 ADD.addEventListener('click', addFile);
 
+scheduleTitleTag.addEventListener('click', toggle);
 
 
 function minimize() {
@@ -79,5 +81,18 @@ function toggle(){
 }
 
 async function addFile() {
-    app.window.addFile();
+    const fileData = await app.window.addFile();
+    console.log(fileData);
+    const lines = fileData.split('\n');
+    SCHEDULE_BODY.innerHTML = '';
+    for (let i = 0; i < lines.length; i++) {
+        // skip line if empty or whitespace
+        if (lines[i].trim() === '') {
+            continue;
+        }
+        SCHEDULE_BODY.innerHTML += `<li>${lines[i]}</li>`;
+    }
+    // get new height of content and resize window
+    await resizeTo();
+    
 }

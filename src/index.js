@@ -42,14 +42,6 @@ const createWindow = () => {
 // Some APIs can only be used after this event occurs.
 app.on('ready', createWindow);
 
-app.on('blur', () => {
-  app.setBackgroundColor('#00000000');
-});
-
-app.on('focus', () => {
-  app.setBackgroundColor('#00000000');
-});
-
 // Quit when all windows are closed, except on macOS. There, it's common
 // for applications and their menu bar to stay active until the user quits
 // explicitly with Cmd + Q.
@@ -76,7 +68,7 @@ ipcMain.on('app/minimize', () => {
   mainWindow.minimize();
 });
 
-ipcMain.on('vscode:addFile', () => {
+ipcMain.handle('vscode:addFile', () => {
   // get current month and date and create a string of format 'mmmm dd.txt'
   const date = new Date();
   const month = date.toLocaleString('default', { month: 'long' });
@@ -86,6 +78,15 @@ ipcMain.on('vscode:addFile', () => {
   const filePath = path.join(folderName, fileName);
   exec(`code "${filePath}"`);
 
+  
+  // const filePath = result.filePaths[0];
+  // check if file exists
+  if (!fs.existsSync(filePath)) 
+    return ''
+  else {
+    const fileData = fs.readFileSync(filePath, 'utf-8');
+    return fileData;
+  }
 });
 
 ipcMain.handle('dialog:openFile', handleOpenFile);
