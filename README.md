@@ -6,4 +6,9 @@ The aim for the project is simple. I wanted to create a daily schedule for mysel
 
 Anyway, it seems like a good hobby project. It's also my first electron project, so wish me luck. Adios.
 
-Just npm install and npm start to run the project.
+
+## How to run
+
+1. Clone the repo
+2. Run `npm install`
+3. Run `npm start`
